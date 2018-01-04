@@ -1,0 +1,20 @@
+﻿$PBExportHeader$gf_parser_any.srf
+global type gf_parser_any from function_object
+end type
+
+forward prototypes
+global function integer gf_parser_any (any aa_parser)
+end prototypes
+
+global function integer gf_parser_any (any aa_parser);//返回json中的子对象数
+long ll_root,ll_count
+jsonparser ljs_par
+ljs_par = aa_parser
+
+ll_root = ljs_par.getrootitem()
+ll_count = ljs_par.getchildcount(ll_root)
+
+return ll_count
+
+end function
+

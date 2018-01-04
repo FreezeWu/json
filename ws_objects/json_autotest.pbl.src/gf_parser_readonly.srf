@@ -1,0 +1,15 @@
+﻿$PBExportHeader$gf_parser_readonly.srf
+global type gf_parser_readonly from function_object
+end type
+
+forward prototypes
+global subroutine gf_parser_readonly (readonly jsonparser ajs)
+end prototypes
+
+global subroutine gf_parser_readonly (readonly jsonparser ajs);string ls_json
+
+ls_json = '{"test":"readonly"}'
+
+ajs.loadstring(ls_json)
+end subroutine
+

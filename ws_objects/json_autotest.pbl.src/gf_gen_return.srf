@@ -1,0 +1,24 @@
+﻿$PBExportHeader$gf_gen_return.srf
+global type gf_gen_return from function_object
+end type
+
+forward prototypes
+global function jsongenerator gf_gen_return ()
+end prototypes
+
+global function jsongenerator gf_gen_return ();long ll_object,ll_array
+jsongenerator ajs
+ajs = create jsongenerator
+ll_array = ajs.createjsonarray()
+//ll_array = ajs.additemarray(ll_object,"星期")
+ajs.additemstring(ll_array,"一")
+ajs.additemstring(ll_array,"二")
+ajs.additemstring(ll_array,"三")
+ajs.additemstring(ll_array,"四")
+ajs.additemstring(ll_array,"五")
+ajs.additemstring(ll_array,"六")
+ajs.additemstring(ll_array,"日")
+
+return ajs
+end function
+

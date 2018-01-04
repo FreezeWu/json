@@ -1,0 +1,23 @@
+﻿$PBExportHeader$p_json_autotest_exe.srj
+$PBExportComments$Generated Application Executable Project
+EXE:json_autotest.exe,,0,0,1
+CMP:0,0,0,3,0,0,1
+COM:Appeon
+DES:Appeon Product File
+CPY:
+PRD:PowerBuilder Enterprise Series
+PVS:1.0.0.1
+PVN:1,0,0,1
+FVS:1.0.0.1
+FVN:1,0,0,1
+MAN:0,asInvoker,0
+PBD:json_autotest.pbl,,0
+OBJ:d:\apb-file\pb newfeature\json_svn\json_autotest.pbl,str_json_new,s
+OBJ:d:\apb-file\pb newfeature\json_svn\json_autotest.pbl,eon_appeon_resize,u
+OBJ:d:\apb-file\pb newfeature\json_svn\json_autotest.pbl,uo_json_per,u
+OBJ:D:\APB-File\PB NewFeature\json_svn\json_autotest.pbl,json_autotest,a
+OBJ:d:\apb-file\pb newfeature\json_svn\json_autotest.pbl,w_json,w
+OBJ:d:\apb-file\pb newfeature\json_svn\json_autotest.pbl,w_tmp,w
+OBJ:d:\apb-file\pb newfeature\json_svn\json_autotest.pbl,w_tmp_generator,w
+OBJ:d:\apb-file\pb newfeature\json_svn\json_autotest.pbl,gf_getjsonstring,f
+OBJ:d:\apb-file\pb newfeature\json_svn\json_autotest.pbl,gf_parser_any,f

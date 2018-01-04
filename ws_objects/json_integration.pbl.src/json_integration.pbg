@@ -1,0 +1,20 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "json_integration.pbl" "";
+@end;
+@begin Objects 
+ "json_integration.sra" "json_integration.pbl";
+ "d_customer.srd" "json_integration.pbl";
+ "d_customers.srd" "json_integration.pbl";
+ "d_diqu.srd" "json_integration.pbl";
+ "d_diqu_group.srd" "json_integration.pbl";
+ "d_diqu_tree.srd" "json_integration.pbl";
+ "p_json_integration_exe.srj" "json_integration.pbl";
+ "nvo_base64.sru" "json_integration.pbl";
+ "nvo_jsongen.sru" "json_integration.pbl";
+ "nvo_jsonpar.sru" "json_integration.pbl";
+ "u_derek_fun.sru" "json_integration.pbl";
+ "u_derek_md5.sru" "json_integration.pbl";
+ "w_json_integration.srw" "json_integration.pbl";
+ "w_json_integration_new.srw" "json_integration.pbl";
+@end;

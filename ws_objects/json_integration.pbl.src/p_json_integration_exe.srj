@@ -1,0 +1,18 @@
+﻿$PBExportHeader$p_json_integration_exe.srj
+$PBExportComments$Generated Application Executable Project
+EXE:json_integration.exe,,0,0,1
+CMP:0,0,0,3,0,0,1
+COM:Appeon
+DES:Appeon Product File
+CPY:
+PRD:PowerBuilder Enterprise Series
+PVS:1.0.0.1
+PVN:1,0,0,1
+FVS:1.0.0.1
+FVN:1,0,0,1
+MAN:0,asInvoker,0
+PBD:json_integration.pbl,,1
+OBJ:D:\APB-File\PB NewFeature\json_svn\json_integration.pbl,json_integration,a
+OBJ:D:\APB-File\PB NewFeature\json_svn\json_integration.pbl,w_json_integration,w
+OBJ:D:\APB-File\PB NewFeature\json_svn\json_integration.pbl,w_base,w
+OBJ:D:\APB-File\PB NewFeature\json_svn\json_integration.pbl,eon_appeon_resize,u

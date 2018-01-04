@@ -1,0 +1,23 @@
+﻿Save Format v3.0(19990112)
+@begin Libraries
+ "json_autotest.pbl" "";
+@end;
+@begin Objects 
+ "json_autotest.sra" "json_autotest.pbl";
+ "gf_gen_ref.srf" "json_autotest.pbl";
+ "gf_gen_return.srf" "json_autotest.pbl";
+ "gf_getjsonstring.srf" "json_autotest.pbl";
+ "gf_parser_any.srf" "json_autotest.pbl";
+ "gf_parser_readonly.srf" "json_autotest.pbl";
+ "gf_parser_value.srf" "json_autotest.pbl";
+ "p_json_autotest_exe.srj" "json_autotest.pbl";
+ "str_json_new.srs" "json_autotest.pbl";
+ "nvo_gen.sru" "json_autotest.pbl";
+ "nvo_par.sru" "json_autotest.pbl";
+ "uo_json_per.sru" "json_autotest.pbl";
+ "uo_json_share.sru" "json_autotest.pbl";
+ "w_json.srw" "json_autotest.pbl";
+ "w_json_auto.srw" "json_autotest.pbl";
+ "w_tmp.srw" "json_autotest.pbl";
+ "w_tmp_generator.srw" "json_autotest.pbl";
+@end;

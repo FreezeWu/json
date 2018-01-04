@@ -1,0 +1,6 @@
+﻿$PBExportHeader$str_json_new.srs
+global type str_json_new from structure
+	jsonparser		str_par
+	jsongenerator		str_gen
+end type
+

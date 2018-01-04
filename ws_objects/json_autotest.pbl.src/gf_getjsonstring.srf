@@ -1,0 +1,20 @@
+﻿$PBExportHeader$gf_getjsonstring.srf
+global type gf_getjsonstring from function_object
+end type
+
+forward prototypes
+global function string gf_getjsonstring (str_json_new astr_json)
+end prototypes
+
+global function string gf_getjsonstring (str_json_new astr_json);//
+string ls_json
+
+if true then
+	ls_json = astr_json.str_gen.getjsonstring()
+	return ls_json
+else
+	return ''
+end if
+
+end function
+

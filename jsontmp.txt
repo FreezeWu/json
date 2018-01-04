@@ -1,0 +1,524 @@
+﻿-----Test Point:p001_parserclassic_classname-----
+leon_par.classname( ) = jsonparser
+RuntimeError: Null object reference at line 19 in function wf_scriptexe_jsonparser_classic of object w_json_auto.
+leon_par.getparent().classname() = w_json_auto
+-----Test Point:p001a_parserclassic_classdefinition-----
+classdefiniton.name=jsonparser
+GetCompanyName=Appeon
+-----Test Point:p002_parserclassic_typeof-----
+leon_par.typeof( ) = jsonparser!
+-----Test Point:p003_parserclassic_createanddestroy-----
+Succeed: After destroy leon_par is not avalid
+The object was created
+loadstring succeed
+-----Test Point:p004_parserclassic_message-----
+return from message is 测试对象传递123
+-----Test Point:p005_parserclassic_ansi-----
+gjs_par.loadstring() Failed : The string is empty.
+-----Test Point:p006_parserclassic_utf8-----
+gjs_par.loadstring({"编号":45,"姓名":"李三"}) Succeed!
+getitemstring(root,'姓名')= 李三
+-----Test Point:p007_parserclassic_utf16le-----
+gjs_par.loadstring({"编号":45,"姓名":"李三"}) Succeed!
+getitemstring(root,'姓名')= 李三
+-----Test Point:p008_parserclassic_utf16be-----
+gjs_par.loadstring({"编号":45,"姓名":"李三"}) Succeed!
+getitemstring(root,'姓名')= 李三
+-----Test Point:p009_area_struct-----
+Return from gf_getjsonstring = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+-----Test Point:p010_area_instance-----
+ ieon_parser.getchildcount() = 10
+ ieon_gen.getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+-----Test Point:p011_area_glob-----
+ ieon_parser.getchildcount() = 10
+ ieon_gen.getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+-----Test Point:p011a_area_share-----
+uo1 = jsonparser:
+{"number":123,"name":"test"}
+jsongenerator:
+{"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ShareValue from uo1 = jsonparser:
+{"number":123,"name":"test"}
+jsongenerator:
+{"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+close uo1后，uo2数据 = jsonparser:
+{"number":123,"name":"test"}
+jsongenerator:
+{"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+新打开对象 uo3，uo3数据 = jsonparser:
+{"number":123,"name":"test"}
+jsongenerator:
+{"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+新开启uo1 = jsonparser:
+{"number":123,"name":"test"}
+jsongenerator:
+{"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+手工Destroy后，ShareValue from uo1 = 对象未实例化
+-----Test Point:p012_area_performance-----
+1000 times loop，耗时:10172 MS
+ljs_genarray[901].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[902].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[903].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[904].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[905].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[906].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[907].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[908].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[909].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[910].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[911].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[912].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[913].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[914].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[915].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[916].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[917].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[918].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[919].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[920].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[921].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[922].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[923].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[924].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[925].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[926].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[927].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[928].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[929].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[930].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[931].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[932].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[933].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[934].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[935].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[936].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[937].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[938].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[939].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[940].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[941].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[942].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[943].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[944].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[945].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[946].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[947].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[948].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[949].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[950].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[951].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[952].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[953].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[954].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[955].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[956].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[957].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[958].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[959].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[960].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[961].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[962].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[963].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[964].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[965].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[966].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[967].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[968].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[969].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[970].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[971].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[972].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[973].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[974].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[975].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[976].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[977].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[978].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[979].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[980].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[981].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[982].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[983].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[984].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[985].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[986].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[987].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[988].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[989].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[990].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[991].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[992].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[993].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[994].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[995].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[996].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[997].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[998].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[999].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+ljs_genarray[1000].getjsonstring() = {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child1":"childitem1","child2":"childitem2"},"chidl_array":["星期一","星期二"]}
+-----Test Point:p013_area_any-----
+gf_parser_any(gjs_par) = 10
+wf_return_any() = [1,2,3,4,5]
+After Changed in the event,the value is 001-ref
+-----Test Point:p013a_area_parm-----
+jsonparser 值传递后, 数据为：value
+jsonparser readonly传递前, 数据为：test
+jsonparser readonly传递后, 数据为：readonly
+jsongenerator ref传递后, 数据为：{"星期":["一","二","三","四","五","六","日"]}
+jsongenerator return from全局函数，数据为：["一","二","三","四","五","六","日"]
+-----Test Point:p013b_area_event-----
+lnvo_par.of_event_create( "trigger") = constructor is triggered!
+lnvo_par.of_event_destroy( "trigger") = constructor is triggered!
+lnvo_gen.of_event( "constructor", "trigger") = constructor is triggered
+lnvo_gen.of_event( "destructor", "trigger") = destructor is triggered
+lnvo_par.of_event( "ue_test", "trigger", 0, "")= lnvo_par.ue_test is triggered!
+lnvo_par.of_event( "ue_test", "trigger", 0, "100")= lnvo_par.ue_test is triggered with parm : wordparm=0;longparm=100
+lnvo_par.of_event( "ue_test", "trigger", 0, "testparser")= lnvo_par.ue_test is triggered with parm : wordparm=0;longparm=testparser
+lnvo_par.of_event( "ue_test", "trigger", 200, "150")= lnvo_par.ue_test is triggered with parm : wordparm=200;longparm=150
+lnvo_gen.of_event( "ue_test", "trigger", 0, "")= lnvo_par.ue_test is triggered with parm : wordparm=200;longparm=150
+lnvo_par.of_event( "ue_test", "trigger", 100, "")= lnvo_par.ue_test is triggered with parm : wordparm=200;longparm=150
+lnvo_gen.of_event( "ue_test", "trigger", 0, "testgenerate")= lnvo_par.ue_test is triggered with parm : wordparm=200;longparm=150
+lnvo_gen.of_event( "ue_test", "trigger", 200, "150")= lnvo_par.ue_test is triggered with parm : wordparm=200;longparm=150
+-----Test Point:p014_parserquery_getrootitem-----
+getrootitem() = 45770348
+getrootitem() = -1
+getrootitem() = 45770108
+-----Test Point:p015_parserquery_getchilditem-----
+getchilditem() 可能每次执行获取的值不一致
+getchilditem() = 46190904
+getchilditem(ll_root,32768) = -1
+getchilditem(ll_root,-32768) = -1
+getchilditem(ll_root,0) = -1
+Succeed : getchilditem(ll_root,null) = null
+-----Test Point:p016_parserquery_getchildkey-----
+getchildkey(ll_root,2) = 
+getchildkey(ll_root,0) = 
+getchildkey(ll_root,null) = null
+-----Test Point:p017_parserquery_getchildcount-----
+getchildcount(ll_root) = -1
+getchildcount(ll_root_tmp) = -1
+getchildcount(null) = null
+getchildcount(0) = -1
+getchildcount(-1) = -1
+getchildcount(root) = 2
+-----Test Point:p018_parserquery_getitemtype-----
+jsonstring= {"string":"s_parent","long":12,"blob":"dABlAHMAdAA=","boolean":true,"datetime":"09-12-2017 12:23:23","date":"09-23-2017","time":"12:23:23","null":null,"child_object":{"child":"childitem"},"child_array":["星期一","星期二"]}
+string is jsonstringitem!
+long is jsonnumberitem!
+blob is jsonstringitem!
+boolean is jsonbooleanitem!
+datetime is jsonstringitem!
+date is jsonstringitem!
+time is jsonstringitem!
+null is jsonnullitem!
+child_object is jsonobjectitem!
+child_array is jsonarrayitem!
+-----Test Point:p019_parserquery_isnullitem-----
+-----Test Point:p020_getitemstring-----
+getitemstring(null) = null
+getitemstring(null) = null
+getitemstring(-1) = GetItem 传入的句柄不合法 at line 34 in function wf_scriptexe_getitem of object w_json_auto.
+getitemstring(0,"name") = GetItem 传入的句柄不合法 at line 40 in function wf_scriptexe_getitem of object w_json_auto.
+getitemstring(handle) = test
+getitemstring(root,'name') = test
+loadstring({"name":"te
+st"}) = Invalid encoding in string.
+getitemstring(-1) = GetItem 传入的句柄不合法 at line 58 in function wf_scriptexe_getitem of object w_json_auto.
+loadstring({"姓名":"李三"}) = 
+getitemstring(root,'姓名') = 李三
+getitemstring(handle) = 李三
+loadstring({"  ":"李三"}) = 
+getitemstring(root,'  ') = 李三
+-----Test Point:p021_getitemnumber-----
+Getitemnumber(null) = null
+Getitemnumber(null) = null
+getitemnumber(root,'number2') = 453.5609
+getitemnumber(handle) = 34
+loadstring({"フルネーム":45}) = 
+getitemnumber(root,'フルネーム') = 45
+loadstring({"":567.8}) = 
+getitemnumber(root,'') = 567.8
+Runtimeerror Message = 获取的数据类型与GetItem 类型不匹配 at line 188 in function wf_scriptexe_getitem of object w_json_auto.
+Runtimeerror Message = GetItem 传入的key错误 at line 198 in function wf_scriptexe_getitem of object w_json_auto.
+getitemnumber(root,'number') = 40
+getitemnumber(index1) = 40
+getitemnumber(index2) = 50
+-----Test Point:p022_getitemboolean-----
+Getitemboolean(null) = null
+Getitemboolean(null) = null
+Getitemboolean(root,'boolean2') = false
+Getitemboolean(handle) = true
+loadstring({"42":true}) = 
+Getitemboolean(root,'42') = true
+-----Test Point:p023_getitemdate-----
+GetitemDate(null) = null
+GetitemDate(null) = null
+getitemdate(root,'date') = 9/8/2017
+getitemdate(handle) = 9/8/2017
+loadstring({"date":"09-08-2017"}) Succeed 
+getitemdate(root,'date') = 9/8/2017
+getitemdate(handle) = 9/8/2017
+loadstring({"날짜":"09-08-2017"}) Succeed 
+getitemdate(root,'날짜') = 9/8/2017
+getitemdate(handle) = 9/8/2017
+-----Test Point:p024_getitemtime-----
+Getitemtime(null) = null
+Getitemtime(null) = null
+Getitemtime(root,'time') = 12:23:23
+Getitemtime(handle) = 12:23:23
+loadstring({"time":"12:23:23"}) Succeed 
+Getitemtime(root,'time') = 12:23:23
+Getitemtime(handle) = 12:23:23
+loadstring({"time":"12:23:23"}) Succeed 
+Getitemtime(root,'time') = 12:23:23:000
+Getitemtime(root,'time') = 12:23:23:234
+loadstring({"time":"12:23:23"}) Succeed 
+Getitemtime(root,'time') = 12:23:23:000000
+Getitemtime(root,'time') = 12:23:23:234123
+loadstring({"وقت":"12:23:23"}) Succeed 
+Getitemtime(root,'وقت') = 12:23:23
+Getitemtime(handle) = 12:23:23
+-----Test Point:p025_getitemdatetime-----
+Getitemdatetime(null) = null
+Getitemdatetime(null) = null
+Getitemdatetime(root,'datetime') = 9/12/2017 12:23:23
+Getitemdatetime(handle) = 9/12/2017 12:23:23
+Getitemdatetime(root,'datetime') = 2017-09-12 12:23:23:345
+Getitemdatetime(handle) = 2017-09-12 12:23:23:345
+Getitemdatetime(root,'datetime') = 2017-09-12 12:28:35:000
+Getitemdatetime(root,'datetime') = 2017-09-12 12:23:23:345234
+Getitemdatetime(handle) = 2017-09-12 12:23:23:345234
+loadstring({"datetime":"09-12-2017 12:23:23"}) Succeed 
+Getitemdatetime(root,'datetime') = 2017-09-12 12:23:23:000
+Getitemdatetime(handle) = 2017-09-12 12:23:23:000
+loadstring({"datetime":"09-12-2017 12:23:23"}) Succeed 
+Getitemdatetime(root,'datetime') = 9/12/2017 12:23:23
+Getitemdatetime(handle) = 9/12/2017 12:23:23
+loadstring({"Datumäöüß":"09-12-2017 12:23:23"}) Succeed 
+Getitemdatetime(root,'Datumäöüß') = 9/12/2017 12:23:23
+Getitemdatetime(handle) = 9/12/2017 12:23:23
+loadstring({"testdate_long":1510460603000,"testdate":"11-12-2017 12:23:23","date_array":[1510460603000,"11-12-2017 12:23:23"]}) Succeed 
+gjs_par.getitemnumber( root,"testdate_long") = 1510460603000
+gjs_par.getitemdatetime( root,"testdate_long") = 11/12/2017 12:23:23
+getitemdate(root,long) error : 获取的数据类型与GetItem 类型不匹配 at line 754 in function wf_scriptexe_getitem of object w_json_auto.
+gjs_par.getitemnumber( index1,) = 1510460603000
+gjs_par.getitemdatetime(index1) = 11/12/2017 12:23:23
+getitemdate(index1) error : 获取的数据类型与GetItem 类型不匹配 at line 766 in function wf_scriptexe_getitem of object w_json_auto.
+ljs_gentmp.getjsonstring( ) = {"today_long":1514190849000,"today_string":"12-25-2017 16:32:38"}
+ljs_partmp.getitemnumber( ll_root,"today_long")=1514190849000
+ljs_partmp.getitemdatetime( ll_root,"today_long")=12/25/2017 16:34:09
+ljs_partmp.getitemdatetime( ll_root,"today_string")=12/25/2017 16:32:38
+9位时间戳：ljs_partmp.getitemdatetime( ll_root,"date")=10/17/1974 09:09:04
+10位时间戳：ljs_partmp.getitemdatetime( ll_root,"date")=11/30/2017 19:30:49
+11位时间戳：ljs_partmp.getitemdatetime( ll_root,"date")=2/23/2449 03:08:10
+12位时间戳：getitemdatetime() error : 获取的数据类型与GetItem 类型不匹配 at line 808 in function wf_scriptexe_getitem of object w_json_auto.
+13位时间戳：ljs_partmp.getitemdatetime( ll_root,"date")=11/30/2017 19:30:49
+loadstring({"datetime":1505190515000}) Succeed 
+Getitemdatetime(root,'datetime') = 2017-09-12 12:28:35:000
+loadstring({"datetime":"09-12-2017 12:23:23"}) Succeed 
+Getitemdatetime(root,'datetime') = 2017-09-12 12:23:23:000
+loadstring({"datetime":1505190515456}) Succeed 
+Getitemdatetime(root,'datetime') = 2017-09-12 12:28:35:000456
+loadstring({"datetime":"09-12-2017 12:23:23"}) Succeed 
+Getitemdatetime(root,'datetime') = 2017-09-12 12:23:23:000000
+-----Test Point:p026_getitemblob-----
+GetItemBlob(null) = null
+GetItemBlob(null) = null
+loadstring({"blob":"VABlAHMAdABLbdWL"}) = 
+Getitemblob(root,'blob') = Test测试
+Getitemblob(handle) = Test测试
+loadstring({"borrón":"YgBvAHIAcgDzAG4AS23Viw=="}) = 
+Getitemblob(root,'borrón') = borrón测试
+Getitemblob(handle) = borrón测试
+Getitemblob(root,'test') = 
+Getitemblob(root,'test') = Test测试
+-----Test Point:p027_getitemobject-----
+Getitemobject(null) = null
+loadstring({"object":{"name":"test1","number":34,"Null":"null"}}) = 
+Getitemobject(root,'object') = 46462716
+Child count of the object is 3
+loadstring({"Россия":{"name":"test1Россия","Null":"null"}}) = 
+Getitemobject(root,'Россия') = 46462708
+Child count of the object is 2
+-----Test Point:p028_getitemarray-----
+Getitemarray(null) = null
+loadstring({"array":["test1",34,"null"]}) = 
+Getitemobject(root,'array') = 46462668
+Child count of the object is 3
+loadstring({"วาล์วด้วยมือ":["test1วาล์วด้วยมือ",34,"Null"]}) = 
+Getitemobject(root,'วาล์วด้วยมือ') = 46462732
+Child count of the object is 3
+-----Test Point:p029_generatorclassic_classname-----
+leon_gen.classname( ) = jsongenerator
+leon_gen.getparent( ).classname( ) = w_json_auto
+-----Test Point:p029a_generatorclassic_classdefinition-----
+classdefiniton.name=jsongenerator
+GetCompanyName=Appeon
+-----Test Point:p030_generatorclassic_typeof-----
+leon_gen.typeof( ) = jsongenerator!
+-----Test Point:p031_generatorclassic_createanddestroy-----
+Succeed: After destroy leon_gen is not avalid
+The object was created
+additemnumber(object,'id',100) = 10289252
+-----Test Point:p032_generatorclassic_message-----
+lnvo_par.of_event_create( "post") = constructor is post!
+lnvo_par.of_event_create( "post") = constructor is post!
+lnvo_gen.of_event( "constructor", "post") = constructor is post
+lnvo_gen.of_event( "destructor", "post") = destructor is post
+lnvo_par.ue_test( "post") = wordparm=0;longparm=0
+lnvo_par.ue_test( "post") = wordparm=50;longparm=0
+lnvo_par.ue_test( "post") = wordparm=0;longparm=117455676
+lnvo_par.ue_test( "post") = wordparm=0;longparm=100
+lnvo_par.of_event_destroy( "post") = destructor is post!
+lnvo_gen.ue_test( "post") = wordparm=0;longparm=100
+lnvo_gen.ue_test( "post") = wordparm=500;longparm=0
+lnvo_gen.ue_test( "post") = wordparm=0;longparm=117456436
+lnvo_gen.ue_test( "post") = wordparm=0;longparm=200
+lnvo_gen.of_event( "destructor", "post") = destructor is post
+return from message is {"id":100,"Text":"jsgenerator"}
+-----Test Point:p033_generatorinout_createjsonobject-----
+First createjsonobject = 45681700
+Second createjsonobject = 45681972
+Additem to first object = 46462620
+Additem to second object = 46463132
+ljs_gen.getjsonstring() = {"name":"test"}
+-----Test Point:p034_generatorinout_createjsonarray-----
+First createjsonarray = 45680748
+Second createjsonarray = 45680748
+Additem to first object = 46462604
+Additem to second object = 46462620
+-----Test Point:p035_generatorinout_getjsonstring-----
+空变量 To string = 
+Createjsonobject 后 to string = {}
+Createjsonarray 后 to string = []
+json string = {"object1":{"Testobject2":"Test","booleanvalue":true,"number":24.5,"星期":["一","二","三","四","五"]},"日期":"10-17-2017"}
+json string = [{"Testobject2":"Test","booleanvalue":true,"number":24.5,"星期":["一","二","三","四","五"]},"10-17-2017",["六","⑥","Ⅵ","日"]]
+-----Test Point:p036_generatorinout_getjsonblob-----
+空变量 To blob = 
+Createjsonobject 后 to string = {}
+Createjsonarray 后 to string = []
+json blob = {"object1":{"Testobject2":"Test","booleanvalue":true,"number":24.5,"星期":["一","二","三","四","五"]},"日期":"10-17-2017"}
+json blob = [{"Testobject2":"Test","booleanvalue":true,"number":24.5,"星期":["一","二","三","四","五"]},"10-17-2017",["六","⑥","Ⅵ","日"]]
+-----Test Point:p037_generatorinout_savetofile-----
+savetofile(null) = null
+savetofile(createjson.txt) = 1
+savetofile(testforsave.txt) = 1
+savetofile(testforsave.txt) = 1
+savetofile(C:\test234\testforsave.txt) = -1
+savetofile(createforjson.docx) = 1
+savetofile(testforsave.docx) = 1
+savetofile(temp.pdf) = 1
+savetofile(temp.xml) = 1
+savetofile(temp.html) = 1
+savetofile(temp.xlsx) = 1
+-----Test Point:p038_additemstring-----
+additemstring(null,'','') = null
+additemstring(null,'') = null
+additemstring(-1,'test','test') = -1
+additemstring(obejct,'test','test') = 46462652
+additemstring(array,'test') = 46463116
+additemstring(arry,'test','test') = -1
+additemstring(object,'test') = -1
+additemstring(obejct,'วาล์วด้วยมือ','วาล์วด้วยมือtest') = 46462684
+additemstring(obejct,'samekey','test1') = 46462716
+additemstring(obejct,'samekey','test2') = 46462748
+ljs_gen.getjsonstring()={"array":["test"],"test":"test","วาล์วด้วยมือ":"วาล์วด้วยมือtest","samekey":"test1","samekey":"test2"}
+-----Test Point:p039_additemnumber-----
+additemnumber(null,'',123) = null
+additemnumber(null,123) = null
+additemnumber(0,'test',123) = -1
+additemnumber(object,'test',0) = 46462652
+additemnumber(object,'test',-32768) = 46462684
+additemnumber(object,'test',1.79e+308) = 46462716
+additemnumber(object,'序号',100) = 46462748
+additemnumber(obejct,'test',12.4) = 46462780
+additemnumber(array,12) = 46462620
+-----Test Point:p040_additemboolean-----
+additemboolean(null,'',true) = null
+additemboolean(null,true) = null
+additemboolean(obejct,'test',1=1) = 46462652
+additemboolean(obejct,'test',this.visible) = 46462684
+additemboolean(obejct,'test',ljs_gen.isjsonvalid()) = 46462716
+additemboolean(obejct,'test',true) = 46462748
+additemboolean(array,false) = 46462620
+-----Test Point:p041_additemdate-----
+additemdate(null,'',today()) = null
+additemdate(null,today()) = null
+additemdate(obejct,'test',2017-09-18) = 46462652
+additemdate(obejct,'test',17-09-18) = 46462684
+additemdate(obejct,'test',09-18-2017) = 46462716
+additemdate(obejct,'test',today()) = 46462748
+additemdate(array,today()) = 46463236
+-----Test Point:p042_additemtime-----
+additemtime(null,'',now()) = null
+additemtime(null,now()) = null
+additemtime(obejct,'test',12:34:45:454) = 46462652
+additemtime(obejct,'วาล์วด้วยมือ',12:34:45:454) = 46462684
+additemtime(obejct,'test',now()) = 46462716
+additemtime(array,now()) = 46463224
+-----Test Point:p043_additemdatetime-----
+additemdatetime(null,'',datetime(today(),now())) = null
+additemdatetime(null,datetime(today(),now())) = null
+additemdatetime(object,'날짜',datetime(today(),now())) = 46462652
+additemdatetime(object,'test',datetime(today(),now())) = 46462684
+additemdatetime(array,datetime(today(),now())) = 46463236
+additemdatetime(object,'StringTime',datetime("2017-11-17 12:40:40"),false) = 46462716
+additemdatetime(object,'StringTime',datetime("2017-11-17 12:40:40"),true) = 46462748
+additemdatetime(array,datetime("2017-11-17 12:40:40"),false) = 46463644
+additemdatetime(array,datetime("2017-11-17 12:40:40"),true) = 46462796
+ljs_gen.getjsonstring( ) = {"array":["12-25-2017 16:32:40"],"날짜":"12-25-2017 16:32:40","test":"12-25-2017 16:32:40","StringTime":"11-17-2017 12:40:40","StringTime":1510893640000,"Array-Time":["11-17-2017 12:40:40",1510893640000]}
+-----Test Point:p044_additemblob-----
+additemblob(null,'',blob('')) = null
+additemblob(null,blob('')) = null
+additemblob(obejct,'test',blob('测试使用DE')) = 46462652
+additemblob(array,blob('测试使用DE')) = 46463188
+additemblob(obejct,'borrón',blob('测试使用borrón')) = 46462684
+additemblob(array,blob('测试使用DE')) = 46463204
+-----Test Point:p045_additemnull-----
+additemnull(null,'') = null
+additemnull(null) = null
+additemnull(obejct,'test') = 46462652
+additemnull(array) = 46463116
+additemnull(obejct,'フルネーム') = 46462684
+-----Test Point:p046_additemobject-----
+additemobject(null,'') = null
+additemobject(null) = null
+additemnull(obejct,'test测试') = 46462652
+additemnull(array) = 46463116
+additemnull(obejct,'Россия测试') = 46462684
+-----Test Point:p047_additemarray-----
+additemarray(null,'') = null
+additemarray(null) = null
+additemarray(obejct,'test测试') = 46462652
+additemarray(array) = 46463116
+ljs_gen.getjsonstring() = {"array":[[]],"test测试":[]}
+-----Test Point:p048_additem_isjsonvalid-----
+isjsonvalid 函数取消
+-----Test Point:p049_loadstring-----
+loadstring(null) = Null
+loadstring() = The string is empty.
+loadstring(space(1000)) = The string is empty.
+loadstring({"id":45,"name":"lisan
+ter@#$-`*&"}) = Invalid encoding in string.
+loadstring({"id":45,"name":"lisan
+"}) = Invalid encoding in string.
+loadstring({"id":45,"name":"李三③Ⅲ������"}) =  Succeed
+loadstring({"
+id":45,"name":"lisan"}) = Invalid encoding in string.
+loadstring({"id":45,"name":"li	san"}) = Invalid encoding in string.
+loadstring({"功能《id":45,"ÄÖÜß|name":"李三"}) =  Succeed
+loadstring({"123":45,"name":"lisan"}) =  Succeed
+loadstring({"编号":045,"name":"lisan"}) = Missing a comma or '}' after an object member.
+loadstring({"编号":0xAF,"name":"lisan"}) = Missing a comma or '}' after an object member.
+loadstring( {"name":"中国", "province":[ { "name":"黑龙江", "cities":{ "city":["哈尔滨","大庆"] }},{"name":"广东", "cities":{ "city":["深圳","广州","珠海"] }}] }) =  Succeed
+loadstring(1242354) = Invalid value.
+loadstring(	) = The string is empty.
+loadstring(test) = Invalid value.
+loadstring("test") = Invalid value.
+-----Test Point:p050_loadfile-----
+loadfile(null) = Null
+loadfile("") = The file name does not exist.
+loadstring(json_autotest.pbl) = Invalid value.
+loadstring(json.docx) = Invalid value.
+loadstring(json.txt) Succeed
+loadstring(C:\Users\appeon\Desktop\Testcase\Json\json.txt) Succeed

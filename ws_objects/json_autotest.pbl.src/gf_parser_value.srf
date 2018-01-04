@@ -1,0 +1,15 @@
+﻿$PBExportHeader$gf_parser_value.srf
+global type gf_parser_value from function_object
+end type
+
+forward prototypes
+global subroutine gf_parser_value (jsonparser ajs)
+end prototypes
+
+global subroutine gf_parser_value (jsonparser ajs);string ls_json
+
+ls_json = '{"test":"value"}'
+
+ajs.loadstring(ls_json)
+end subroutine
+
