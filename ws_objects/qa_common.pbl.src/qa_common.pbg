@@ -4,6 +4,7 @@
 @end;
 @begin Objects 
  "eon_appeon_resize.sru" "qa_common.pbl";
+ "w_1.srw" "qa_common.pbl";
  "w_appeon_base.srw" "qa_common.pbl";
  "w_base.srw" "qa_common.pbl";
  "w_manu_base.srw" "qa_common.pbl";
